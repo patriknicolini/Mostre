@@ -1,0 +1,50 @@
+{
+  "generated_at": "15 settembre 2026 (snapshot iniziale, non ancora aggiornato da Actions)",
+  "cities": {
+    "trieste": {
+      "city": "Trieste",
+      "exhibitions": [
+        {
+          "title": "Africa 1970-2005. Disegni di Edoardo Di Muro. Trieste-Dakar",
+          "venue": "Magazzino 26",
+          "dates": "dal 2 agosto 2026 al 27 settembre 2026",
+          "url": "https://www.arte.it/calendario-arte/trieste/mostra-africa-1970-2005-disegni-di-edoardo-di-muro-trieste-dakar-104253"
+        },
+        {
+          "title": "L'arte triestina al femminile nel '900 d'avanguardia italiano ed europeo",
+          "venue": "Magazzino 26",
+          "dates": "dal 23 luglio 2026 al 27 settembre 2026",
+          "url": "https://www.arte.it/calendario-arte/trieste/mostra-l-arte-triestina-al-femminile-nel-900-d-avanguardia-italiano-ed-europeo-104149"
+        },
+        {
+          "title": "Ray Giubilo. Flying racquets",
+          "venue": "Magazzino 26",
+          "dates": "dal 17 luglio 2026 al 20 settembre 2026",
+          "url": "https://www.arte.it/calendario-arte/trieste/mostra-ray-giubilo-flying-racquets-il-tennis-in-un-millesimo-di-secondo-104111"
+        },
+        {
+          "title": "Ila Bêka. Fotoni",
+          "venue": "Magazzino delle Idee",
+          "dates": "dal 27 giugno 2026 al 11 ottobre 2026",
+          "url": "https://www.arte.it/calendario-arte/trieste/mostra-ila-bêka-fotoni-103900"
+        },
+        {
+          "title": "La Contrada: 50 anni e oltre",
+          "venue": "Palazzo Gopcevich",
+          "dates": "dal 22 aprile 2026 al 30 settembre 2026",
+          "url": "https://www.arte.it/calendario-arte/trieste/mostra-la-contrada-50-anni-e-oltre-103661"
+        },
+        {
+          "title": "Una Sfinge l'attrae. Massimiliano d'Asburgo e le collezioni egizie tra Trieste e Vienna",
+          "venue": "Scuderie del Castello di Miramare",
+          "dates": "dal 2 aprile 2026 al 1 novembre 2026",
+          "url": "https://www.arte.it/calendario-arte/trieste/mostra-una-sfinge-l-attrae-massimiliano-d-asburgo-e-le-collezioni-egizie-tra-trieste-e-vienna-103271"
+        }
+      ]
+    },
+    "udine": { "city": "Udine", "exhibitions": [] },
+    "gorizia": { "city": "Gorizia", "exhibitions": [] },
+    "pordenone": { "city": "Pordenone", "exhibitions": [] }
+  },
+  "failed_cities": ["Udine", "Gorizia", "Pordenone"]
+}

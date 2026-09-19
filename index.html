@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mostre a Trieste e FVG</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#185fa5">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Mostre FVG">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23185fa5'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' fill='white'%3E🖼️%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #faf9f6;
+    --card-bg: #ffffff;
+    --border: #e2ded6;
+    --text-primary: #2c2c2a;
+    --text-secondary: #5f5e5a;
+    --accent: #185fa5;
+    --accent-bg: #e6f1fb;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--text-primary);
+  }
+  header {
+    padding: 1.5rem 1.25rem 1rem;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 22px; font-weight: 600; margin: 0 0 4px; }
+  .updated { font-size: 13px; color: var(--text-secondary); margin: 0; }
+  .tabs {
+    display: flex;
+    gap: 8px;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 1.25rem 1rem;
+  }
+  .tab-btn {
+    flex: 1;
+    padding: 10px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    border: 1.5px solid var(--border);
+    background: var(--card-bg);
+    color: var(--text-primary);
+    cursor: pointer;
+  }
+  .tab-btn.active {
+    border-color: var(--accent);
+    background: var(--accent-bg);
+    color: var(--accent);
+  }
+  main { max-width: 640px; margin: 0 auto; padding: 0 1.25rem 2rem; }
+  .view { display: none; }
+  .view.active { display: block; }
+  .note { font-size: 13px; color: var(--text-secondary); margin: 0 0 1rem; }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    margin-bottom: 12px;
+  }
+  .card-title { font-weight: 600; font-size: 15px; margin: 0 0 4px; }
+  .card-meta { font-size: 13px; color: var(--text-secondary); margin: 0 0 10px; }
+  .card-link { font-size: 13px; color: var(--accent); text-decoration: none; font-weight: 500; }
+  .card-link:hover { text-decoration: underline; }
+  .city-card { display: flex; align-items: center; justify-content: space-between; }
+  .city-name { font-weight: 600; font-size: 15px; }
+  .error {
+    background: #fbeaea;
+    border: 1px solid #e8b9b9;
+    color: #8a2f2f;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+  footer {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 1rem 1.25rem 2rem;
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Mostre &mdash; Trieste e Friuli Venezia Giulia</h1>
+  <p class="updated" id="updated-line">Caricamento dati&hellip;</p>
+</header>
+
+<div class="tabs" id="tabs"></div>
+
+<main>
+  <div id="views"></div>
+</main>
+
+<footer>
+  I dati vengono ricaricati automaticamente ogni giorno da un workflow GitHub Actions che legge arte.it. Questa pagina mostra l'ultima versione salvata in <code>data.json</code> al momento dell'apertura.
+</footer>
+
+<script>
+function escapeHtml(str) {
+  const d = document.createElement('div');
+  d.innerText = str;
+  return d.innerHTML;
+}
+
+function renderCard(m) {
+  return '<div class="card">'
+    + '<p class="card-title">' + escapeHtml(m.title) + '</p>'
+    + '<p class="card-meta">' + escapeHtml(m.venue) + ' &middot; ' + escapeHtml(m.dates) + '</p>'
+    + '<a class="card-link" href="' + m.url + '" target="_blank" rel="noopener">Dettagli su arte.it &rarr;</a>'
+    + '</div>';
+}
+
+function selectTab(slug) {
+  document.querySelectorAll('.tab-btn').forEach(function(btn) {
+    btn.classList.toggle('active', btn.dataset.slug === slug);
+  });
+  document.querySelectorAll('.view').forEach(function(view) {
+    view.classList.toggle('active', view.dataset.slug === slug);
+  });
+}
+
+function buildUI(data) {
+  const cities = data.cities || {};
+  const slugs = Object.keys(cities);
+  const tabsEl = document.getElementById('tabs');
+  const viewsEl = document.getElementById('views');
+
+  if (slugs.length === 0) {
+    viewsEl.innerHTML = '<div class="error">Nessun dato disponibile al momento.</div>';
+    return;
+  }
+
+  tabsEl.innerHTML = slugs.map(function(slug, i) {
+    return '<button class="tab-btn' + (i === 0 ? ' active' : '') + '" data-slug="' + slug + '">'
+      + escapeHtml(cities[slug].city) + '</button>';
+  }).join('');
+
+  viewsEl.innerHTML = slugs.map(function(slug, i) {
+    const c = cities[slug];
+    const list = c.exhibitions.map(renderCard).join('')
+      || '<p class="note">Nessuna mostra attualmente in corso.</p>';
+    return '<div class="view' + (i === 0 ? ' active' : '') + '" data-slug="' + slug + '">'
+      + '<p class="note">' + c.exhibitions.length + ' mostre attualmente aperte a ' + escapeHtml(c.city) + '</p>'
+      + list
+      + '</div>';
+  }).join('');
+
+  tabsEl.querySelectorAll('.tab-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() { selectTab(btn.dataset.slug); });
+  });
+
+  if (data.failed_cities && data.failed_cities.length) {
+    viewsEl.insertAdjacentHTML(
+      'afterbegin',
+      '<div class="error">Aggiornamento non riuscito per: '
+        + escapeHtml(data.failed_cities.join(', '))
+        + '. Questi dati potrebbero non essere gli ultimi disponibili.</div>'
+    );
+  }
+}
+
+fetch('data.json?_=' + Date.now())
+  .then(function(res) {
+    if (!res.ok) throw new Error('Impossibile leggere data.json (' + res.status + ')');
+    return res.json();
+  })
+  .then(function(data) {
+    document.getElementById('updated-line').textContent = 'Dati aggiornati al ' + (data.generated_at || 'n/d');
+    buildUI(data);
+  })
+  .catch(function(err) {
+    document.getElementById('updated-line').textContent = '';
+    document.getElementById('views').innerHTML =
+      '<div class="error">Non sono riuscito a caricare data.json: ' + escapeHtml(err.message) + '</div>';
+  });
+</script>
+
+</body>
+</html>

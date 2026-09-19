@@ -1,0 +1,15 @@
+{
+  "name": "Mostre Trieste e FVG",
+  "short_name": "Mostre FVG",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#faf9f6",
+  "theme_color": "#185fa5",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23185fa5'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' fill='white'%3E%F0%9F%96%BC%EF%B8%8F%3C/text%3E%3C/svg%3E",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
