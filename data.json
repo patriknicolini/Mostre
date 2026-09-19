@@ -1,50 +1,104 @@
 {
-  "generated_at": "15 settembre 2026 (snapshot iniziale, non ancora aggiornato da Actions)",
+  "generated_at": "19 September 2026, 12:38 UTC",
   "cities": {
     "trieste": {
       "city": "Trieste",
       "exhibitions": [
         {
-          "title": "Africa 1970-2005. Disegni di Edoardo Di Muro. Trieste-Dakar",
-          "venue": "Magazzino 26",
-          "dates": "dal 2 agosto 2026 al 27 settembre 2026",
+          "title": "Africa 1970 2005 disegni di edoardo di muro trieste dakar",
+          "venue": "Magazzino 26 Africa 1970-2005. Disegni di Edoardo Di Muro. Trieste-Dakar Dal 2 agosto al 27 settembre 2026, la Sala Nathan del Magazzino 26, situata nel Porto Vecchio di Trieste, ospiterà la mostra “Africa 1970...",
+          "dates": "dal 2 Agosto 2026 al 27 Settembre 2026",
           "url": "https://www.arte.it/calendario-arte/trieste/mostra-africa-1970-2005-disegni-di-edoardo-di-muro-trieste-dakar-104253"
         },
         {
-          "title": "L'arte triestina al femminile nel '900 d'avanguardia italiano ed europeo",
-          "venue": "Magazzino 26",
-          "dates": "dal 23 luglio 2026 al 27 settembre 2026",
+          "title": "L arte triestina al femminile nel 900 d avanguardia italiano ed europeo",
+          "venue": "Magazzino 26 L'ARTE TRIESTINA AL FEMMINILE NEL '900 D'AVANGUARDIA ITALIANO ED EUROPEO La mostra è un progetto espositivo multimediale di arte visiva, fashion e musica che, attraverso la vita e le opere di Leonor Fini, Maria Lupie...",
+          "dates": "dal 23 Luglio 2026 al 27 Settembre 2026",
           "url": "https://www.arte.it/calendario-arte/trieste/mostra-l-arte-triestina-al-femminile-nel-900-d-avanguardia-italiano-ed-europeo-104149"
         },
         {
-          "title": "Ray Giubilo. Flying racquets",
-          "venue": "Magazzino 26",
-          "dates": "dal 17 luglio 2026 al 20 settembre 2026",
+          "title": "Ray giubilo flying racquets il tennis in un millesimo di secondo",
+          "venue": "Magazzino 26 Ray Giubilo. Flying Racquets. Il tennis in un millesimo di secondo If you can meet with Triumph and Disaster and treat those two impostors just the same... Le celebri parole di Rudyard Kipling, che accolgono i giocato...",
+          "dates": "dal 17 Luglio 2026 al 20 Settembre 2026",
           "url": "https://www.arte.it/calendario-arte/trieste/mostra-ray-giubilo-flying-racquets-il-tennis-in-un-millesimo-di-secondo-104111"
         },
         {
-          "title": "Ila Bêka. Fotoni",
-          "venue": "Magazzino delle Idee",
-          "dates": "dal 27 giugno 2026 al 11 ottobre 2026",
+          "title": "Ila bêka fotoni",
+          "venue": "Magazzino delle Idee Ila Bêka. Fotoni Dal 27 giugno all’11 ottobre 2026 il Magazzino delle Idee di Trieste presenta FOTONI, la prima personale, a cura di Barbara Casavecchia, che riv...",
+          "dates": "dal 27 Giugno 2026 al 11 Ottobre 2026",
           "url": "https://www.arte.it/calendario-arte/trieste/mostra-ila-bêka-fotoni-103900"
         },
         {
-          "title": "La Contrada: 50 anni e oltre",
-          "venue": "Palazzo Gopcevich",
-          "dates": "dal 22 aprile 2026 al 30 settembre 2026",
+          "title": "La contrada 50 anni e oltre",
+          "venue": "Palazzo Gopcevich La Contrada: 50 anni e oltre Il 22 aprile 2026 il Teatro La Contrada taglierà il traguardo dei suoi primi cinquant’anni di storia. I festeggiamenti, che si protrarran...",
+          "dates": "dal 22 Aprile 2026 al 30 Settembre 2026",
           "url": "https://www.arte.it/calendario-arte/trieste/mostra-la-contrada-50-anni-e-oltre-103661"
         },
         {
-          "title": "Una Sfinge l'attrae. Massimiliano d'Asburgo e le collezioni egizie tra Trieste e Vienna",
-          "venue": "Scuderie del Castello di Miramare",
-          "dates": "dal 2 aprile 2026 al 1 novembre 2026",
+          "title": "Una sfinge l attrae massimiliano d asburgo e le collezioni egizie tra trieste e vienna",
+          "venue": "Scuderie del Castello di Miramare Una Sfinge l’attrae. Massimiliano d’Asburgo e le collezioni egizie tra Trieste e Vienna Ritorna a Trieste parte della collezione egizia dell’arciduca Ferdinando Massimiliano d’Asburgo grazie alla collaborazione tra il Mus...",
+          "dates": "dal 2 Aprile 2026 al 1 Novembre 2026",
           "url": "https://www.arte.it/calendario-arte/trieste/mostra-una-sfinge-l-attrae-massimiliano-d-asburgo-e-le-collezioni-egizie-tra-trieste-e-vienna-103271"
         }
       ]
     },
-    "udine": { "city": "Udine", "exhibitions": [] },
-    "gorizia": { "city": "Gorizia", "exhibitions": [] },
-    "pordenone": { "city": "Pordenone", "exhibitions": [] }
+    "udine": {
+      "city": "Udine",
+      "exhibitions": [
+        {
+          "title": "Il vangelo di marco sette secoli tre frammenti un racconto europeo",
+          "venue": "Palazzo Meizlik IL VANGELO DI MARCO. Sette secoli. Tre frammenti. Un racconto europeo. Per la prima volta dopo sette secoli, le tre parti originali del Vangelo di Marco, oggi conservate a Cividale del Friuli, Venezia e Praga, vengono pre... (Aquileia)",
+          "dates": "dal 12 Settembre 2026 al 25 Aprile 2027",
+          "url": "https://www.arte.it/calendario-arte/udine/mostra-il-vangelo-di-marco-sette-secoli-tre-frammenti-un-racconto-europeo-104122"
+        },
+        {
+          "title": "Contemporaneità costante pop art",
+          "venue": "Museo archeologico nazionale di Aquileia Contemporaneità Costante. Pop art Un dialogo sorprendente tra la collezione del Museo archeologico nazionale di Aquileia e una selezione di opere della Pop Art internazionale e italian... (Aquileia)",
+          "dates": "dal 10 Luglio 2026 al 27 Settembre 2026",
+          "url": "https://www.arte.it/calendario-arte/udine/mostra-contemporaneità-costante-pop-art-104117"
+        },
+        {
+          "title": "Concerti in basilica",
+          "venue": "Basilica di Aquielia Concerti in Basilica Sarà Mario Biondi la ciliegina sulla torta della trentottesima stagione dei Concerti in Basilica, organizzata e curata dalla Fondazione Societ&... (Aquileia)",
+          "dates": "dal 12 Giugno 2026 al 3 Ottobre 2026",
+          "url": "https://www.arte.it/calendario-arte/udine/mostra-concerti-in-basilica-103937"
+        },
+        {
+          "title": "Casa zigaina luogo magico e dell anima",
+          "venue": "Casa Zigaina Casa Zigaina, luogo magico e dell’anima La “bellissima casa di Zigaina”, così definita da Pier Paolo Pasolini, amico del pittore, è stata acquistata dalla Regione A... (Cervignano del Friuli)",
+          "dates": "dal 18 Dicembre 2024 al 31 Dicembre 2030",
+          "url": "https://www.arte.it/calendario-arte/udine/mostra-casa-zigaina-luogo-magico-e-dell-anima-100115"
+        }
+      ]
+    },
+    "gorizia": {
+      "city": "Gorizia",
+      "exhibitions": [
+        {
+          "title": "Italia settanta la creatività come antidoto arte moda design",
+          "venue": "Palazzo Attems Petzenstein Italia Settanta. La creatività come antidoto. Arte Moda Design Dal 27 giugno, le sale di Palazzo Attems Petzenstein a Gorizia tornano a farsi scenario di un viaggio ravvicinato nella memoria visiva del nostro Paes...",
+          "dates": "dal 27 Giugno 2026 al 29 Novembre 2026",
+          "url": "https://www.arte.it/calendario-arte/gorizia/mostra-italia-settanta-la-creatività-come-antidoto-arte-moda-design-104052"
+        }
+      ]
+    },
+    "pordenone": {
+      "city": "Pordenone",
+      "exhibitions": [
+        {
+          "title": "Stefano mancuso monotipi",
+          "venue": "Die Gelbe Wand - Mercati Culturali Stefano Mancuso. Monotipi In occasione dell’edizione 2026 di Pordenonelegge, lo spazio espositivo Die Gelbe Wand, all’interno del nuovo spazio culturale&n...",
+          "dates": "dal 17 Settembre 2026 al 25 Ottobre 2026",
+          "url": "https://www.arte.it/calendario-arte/pordenone/mostra-stefano-mancuso-monotipi-104434"
+        },
+        {
+          "title": "Francesco dolfo fuoriserie",
+          "venue": "Museo Civico d'Arte di Palazzo Ricchier Francesco Dolfo. Fuoriserie",
+          "dates": "dal 7 Novembre 2026 al 27 Dicembre 2026",
+          "url": "https://www.arte.it/calendario-arte/pordenone/mostra-francesco-dolfo-fuoriserie-104427"
+        }
+      ]
+    }
   },
-  "failed_cities": ["Udine", "Gorizia", "Pordenone"]
+  "failed_cities": []
 }
