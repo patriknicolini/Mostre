@@ -28,7 +28,12 @@ CITIES = [
 ]
 
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (compatible; mostre-fvg-bot/1.0; +https://github.com/)"
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+    ),
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7",
 }
 
 # Estrae dal testo concatenato di ogni link-mostra:
@@ -73,14 +78,33 @@ def fetch_city_exhibitions(slug, city_name):
     seen_urls = set()
     needle = "/calendario-arte/{}/mostra-".format(slug)
 
-    for a in soup.find_all("a", href=True):
+    candidate_links = [a for a in soup.find_all("a", href=True) if needle in a["href"]]
+
+    # Diagnostica: aiuta a capire cosa ha davvero ricevuto il server, utile
+    # se arte.it inizia a bloccare le richieste automatiche o cambia pagina.
+    print(
+        "[debug] {}: status={} lunghezza_pagina={} titolo={!r} link_candidati={}".format(
+            city_name,
+            resp.status_code,
+            len(resp.text),
+            soup.title.get_text(strip=True) if soup.title else None,
+            len(candidate_links),
+        ),
+        file=sys.stderr,
+    )
+
+    non_matching_example = None
+
+    for a in candidate_links:
         href = a["href"]
-        if needle not in href or href in seen_urls:
+        if href in seen_urls:
             continue
 
         text = re.sub(r"\s+", " ", a.get_text(separator=" ", strip=True))
         match = ENTRY_PATTERN.match(text)
         if not match:
+            if non_matching_example is None:
+                non_matching_example = text[:200]
             continue
 
         title = match.group("title").strip()
@@ -112,6 +136,13 @@ def fetch_city_exhibitions(slug, city_name):
             }
         )
         seen_urls.add(href)
+
+    if not results and non_matching_example:
+        print(
+            "[debug] {}: nessun link ha combaciato col pattern atteso. "
+            "Esempio di testo trovato: {!r}".format(city_name, non_matching_example),
+            file=sys.stderr,
+        )
 
     return results
 
