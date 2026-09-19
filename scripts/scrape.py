@@ -19,7 +19,6 @@ from bs4 import BeautifulSoup
 
 OUTPUT_PATH = Path(__file__).resolve().parent.parent / "data.json"
 
-# slug usato nell'URL arte.it -> nome citta' da mostrare
 CITIES = [
     ("trieste", "Trieste"),
     ("udine", "Udine"),
@@ -38,10 +37,11 @@ HEADERS = {
 
 # Estrae dalla parte iniziale del testo del link (data, citta', sede):
 #   "Dal {inizio} al {fine} {citta} | {sede} {titolo} {descrizione} ..."
-# Il titolo esatto si legge invece dall'attributo HTML title="" del link
-# (piu' affidabile che provare a isolarlo dal testo concatenato).
+# Uso search invece di match perche' a volte compare un carattere
+# invisibile prima di "Dal" (es. da un'icona), che romperebbe un ancoraggio
+# rigido all'inizio stringa.
 ENTRY_PATTERN = re.compile(
-    r"^Dal\s+(?P<start>\d{1,2}\s+\w+\s+\d{4})\s+al\s+"
+    r"Dal\s+(?P<start>\d{1,2}\s+\w+\s+\d{4})\s+al\s+"
     r"(?P<end>\d{1,2}\s+\w+\s+\d{4})\s+(?P<city>[\w'\s]+?)\s*\|\s*(?P<rest>.+)$",
     re.UNICODE,
 )
@@ -100,7 +100,7 @@ def fetch_city_exhibitions(slug, city_name):
             continue
 
         text = re.sub(r"\s+", " ", a.get_text(separator=" ", strip=True))
-        match = ENTRY_PATTERN.match(text)
+        match = ENTRY_PATTERN.search(text)
         if not match:
             if non_matching_example is None:
                 non_matching_example = text[:200]
@@ -111,19 +111,12 @@ def fetch_city_exhibitions(slug, city_name):
         town = match.group("city").strip()
         rest = match.group("rest").strip()
 
-        # Il titolo si legge dall'attributo HTML title="" del link, che su
-        # arte.it corrisponde esattamente al nome della mostra. Se per
-        # qualche motivo manca, lo ricaviamo alla bell'e meglio dallo slug
-        # nell'URL.
         title = (a.get("title") or "").strip()
         if not title:
             slug_part = href.rstrip("/").rsplit("/mostra-", 1)[-1]
             slug_part = re.sub(r"-\d+$", "", slug_part)
             title = slug_part.replace("-", " ").strip().capitalize()
 
-        # La "rest" contiene "{sede} {titolo} {descrizione}...": togliendo
-        # il titolo (che conosciamo) da dove compare, cio' che resta prima
-        # e' la sede.
         if title and title in rest:
             venue = rest.split(title, 1)[0].strip()
         else:
