@@ -37,13 +37,17 @@ HEADERS = {
 
 # Estrae dalla parte iniziale del testo del link (data, citta', sede):
 #   "Dal {inizio} al {fine} {citta} | {sede} {titolo} {descrizione} ..."
-# Uso search invece di match perche' a volte compare un carattere
-# invisibile prima di "Dal" (es. da un'icona), che romperebbe un ancoraggio
-# rigido all'inizio stringa.
+# Il titolo esatto si legge invece dall'attributo HTML title="" del link
+# (piu' affidabile che provare a isolarlo dal testo concatenato).
+# Uso search (non match) perche' a volte compare un carattere invisibile
+# prima di "Dal". Limito "rest" ai primi 300 caratteri circa (non fino a
+# fine stringa) e uso re.DOTALL: il testo del link puo' essere lungo e
+# contenere caratteri che "." normalmente non attraverserebbe, e non ho
+# comunque bisogno di leggerlo tutto per isolare sede e titolo.
 ENTRY_PATTERN = re.compile(
     r"Dal\s+(?P<start>\d{1,2}\s+\w+\s+\d{4})\s+al\s+"
-    r"(?P<end>\d{1,2}\s+\w+\s+\d{4})\s+(?P<city>[\w'\s]+?)\s*\|\s*(?P<rest>.+)$",
-    re.UNICODE,
+    r"(?P<end>\d{1,2}\s+\w+\s+\d{4})\s+(?P<city>[\w'\s]+?)\s*\|\s*(?P<rest>.{1,300})",
+    re.UNICODE | re.DOTALL,
 )
 
 ITALIAN_MONTHS = {
@@ -141,9 +145,21 @@ def fetch_city_exhibitions(slug, city_name):
     if not results and non_matching_example:
         print(
             "[debug] {}: nessun link ha combaciato col pattern atteso. "
-            "Esempio di testo trovato: {!r}".format(city_name, non_matching_example),
+            "Esempio di testo trovato (primi 200 char): {!r}".format(
+                city_name, non_matching_example
+            ),
             file=sys.stderr,
         )
+        if candidate_links:
+            full_example = re.sub(
+                r"\s+", " ", candidate_links[0].get_text(separator=" ", strip=True)
+            )
+            print(
+                "[debug] {}: lunghezza_testo_primo_link={} repr_primi_400={!r}".format(
+                    city_name, len(full_example), full_example[:400]
+                ),
+                file=sys.stderr,
+            )
 
     return results
 
