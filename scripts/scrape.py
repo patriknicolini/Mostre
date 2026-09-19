@@ -36,12 +36,13 @@ HEADERS = {
     "Accept-Language": "it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7",
 }
 
-# Estrae dal testo concatenato di ogni link-mostra:
-#   "{titolo} Dal {inizio} al {fine} {citta} | {sede} {titolo ripetuto} ..."
+# Estrae dalla parte iniziale del testo del link (data, citta', sede):
+#   "Dal {inizio} al {fine} {citta} | {sede} {titolo} {descrizione} ..."
+# Il titolo esatto si legge invece dall'attributo HTML title="" del link
+# (piu' affidabile che provare a isolarlo dal testo concatenato).
 ENTRY_PATTERN = re.compile(
-    r"^(?P<title>.+?)\s+Dal\s+(?P<start>\d{1,2}\s+\w+\s+\d{4})\s+al\s+"
-    r"(?P<end>\d{1,2}\s+\w+\s+\d{4})\s+(?P<city>[\w'\s]+?)\s*\|\s*(?P<venue>.+?)\s+"
-    r"(?P=title)",
+    r"^Dal\s+(?P<start>\d{1,2}\s+\w+\s+\d{4})\s+al\s+"
+    r"(?P<end>\d{1,2}\s+\w+\s+\d{4})\s+(?P<city>[\w'\s]+?)\s*\|\s*(?P<rest>.+)$",
     re.UNICODE,
 )
 
@@ -80,8 +81,6 @@ def fetch_city_exhibitions(slug, city_name):
 
     candidate_links = [a for a in soup.find_all("a", href=True) if needle in a["href"]]
 
-    # Diagnostica: aiuta a capire cosa ha davvero ricevuto il server, utile
-    # se arte.it inizia a bloccare le richieste automatiche o cambia pagina.
     print(
         "[debug] {}: status={} lunghezza_pagina={} titolo={!r} link_candidati={}".format(
             city_name,
@@ -107,20 +106,29 @@ def fetch_city_exhibitions(slug, city_name):
                 non_matching_example = text[:200]
             continue
 
-        title = match.group("title").strip()
         start_raw = match.group("start").strip()
         end_raw = match.group("end").strip()
-        venue = match.group("venue").strip()
         town = match.group("city").strip()
+        rest = match.group("rest").strip()
 
-        # Nota: le pagine provinciali di arte.it (tutte tranne Trieste)
-        # elencano mostre in tutti i comuni della provincia, non solo nel
-        # capoluogo (es. la pagina "udine" include anche Aquileia,
-        # Cervignano del Friuli, ecc). Non filtriamo quindi per nome
-        # citta': la venue mostra il comune reale.
+        # Il titolo si legge dall'attributo HTML title="" del link, che su
+        # arte.it corrisponde esattamente al nome della mostra. Se per
+        # qualche motivo manca, lo ricaviamo alla bell'e meglio dallo slug
+        # nell'URL.
+        title = (a.get("title") or "").strip()
+        if not title:
+            slug_part = href.rstrip("/").rsplit("/mostra-", 1)[-1]
+            slug_part = re.sub(r"-\d+$", "", slug_part)
+            title = slug_part.replace("-", " ").strip().capitalize()
 
-        # Scarta le mostre gia' chiuse. Se la data non si riesce a
-        # interpretare, la mostra viene comunque inclusa per prudenza.
+        # La "rest" contiene "{sede} {titolo} {descrizione}...": togliendo
+        # il titolo (che conosciamo) da dove compare, cio' che resta prima
+        # e' la sede.
+        if title and title in rest:
+            venue = rest.split(title, 1)[0].strip()
+        else:
+            venue = rest
+
         end_date = parse_italian_date(end_raw)
         if end_date is not None and end_date < today:
             continue
@@ -195,8 +203,6 @@ def main():
     print("data.json aggiornato: {} mostre in {} citta'.".format(total, len(cities_payload)))
 
     if failures:
-        # Segnala l'esito parziale senza far fallire tutta la run: il
-        # workflow legge questo per aprire un'issue di avviso.
         print("::warning::Scraping fallito per: {}".format(", ".join(failures)))
 
 
