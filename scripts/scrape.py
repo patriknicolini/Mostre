@@ -87,10 +87,13 @@ def fetch_city_exhibitions(slug, city_name):
         start_raw = match.group("start").strip()
         end_raw = match.group("end").strip()
         venue = match.group("venue").strip()
-        city = match.group("city").strip()
+        town = match.group("city").strip()
 
-        if city_name.lower() not in city.lower():
-            continue
+        # Nota: le pagine provinciali di arte.it (tutte tranne Trieste)
+        # elencano mostre in tutti i comuni della provincia, non solo nel
+        # capoluogo (es. la pagina "udine" include anche Aquileia,
+        # Cervignano del Friuli, ecc). Non filtriamo quindi per nome
+        # citta': la venue mostra il comune reale.
 
         # Scarta le mostre gia' chiuse. Se la data non si riesce a
         # interpretare, la mostra viene comunque inclusa per prudenza.
@@ -103,7 +106,7 @@ def fetch_city_exhibitions(slug, city_name):
         results.append(
             {
                 "title": title,
-                "venue": venue,
+                "venue": "{} ({})".format(venue, town) if town.lower() != city_name.lower() else venue,
                 "dates": "dal {} al {}".format(start_raw, end_raw),
                 "url": full_url,
             }
