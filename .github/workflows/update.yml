@@ -1,1 +1,52 @@
+name: Aggiorna calendario mostre
 
+on:
+  schedule:
+    # Ogni giorno alle 05:00 UTC (~07:00 in Italia)
+    - cron: "0 5 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Imposta Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installa dipendenze
+        run: pip install -r scripts/requirements.txt
+
+      - name: Esegui lo scraper
+        id: scrape
+        run: python scripts/scrape.py
+
+      - name: Commit se data.json e' cambiato
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data.json
+          git diff --cached --quiet && echo "Nessuna modifica" || git commit -m "Aggiorna calendario mostre"
+          git push
+
+      - name: Apri una issue se lo scraping e' fallito del tutto
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: "Aggiornamento calendario mostre fallito",
+              body: `Lo scraper non e' riuscito a trovare dati per nessuna citta'. Probabile cambio di struttura di arte.it: controlla \`scripts/scrape.py\`.\n\nLog: ${runUrl}`,
+              labels: ["automazione"]
+            });
