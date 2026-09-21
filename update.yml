@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   update-data:
@@ -27,6 +28,11 @@ jobs:
       - name: Esegui lo scraper
         id: scrape
         run: python scripts/scrape.py
+
+      - name: Scarica gli eventi culturali di Trieste
+        id: scrape_events
+        continue-on-error: true
+        run: python scripts/scrape_events.py
 
       - name: Commit se data.json e' cambiato
         if: success()
