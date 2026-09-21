@@ -72,6 +72,18 @@
   .card-meta { font-size: 13px; color: var(--text-secondary); margin: 0 0 10px; }
   .card-link { font-size: 13px; color: var(--accent); text-decoration: none; font-weight: 500; }
   .card-link:hover { text-decoration: underline; }
+.card-category {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--accent);
+    background: var(--accent-bg);
+    border-radius: 999px;
+    padding: 2px 10px;
+    margin-bottom: 6px;
+  }
   .city-card { display: flex; align-items: center; justify-content: space-between; }
   .city-name { font-weight: 600; font-size: 15px; }
   .error {
@@ -124,6 +136,19 @@ function renderCard(m) {
     + '</div>';
 }
 
+function renderEventCard(e) {
+  const category = e.category
+    ? '<span class="card-category">' + escapeHtml(e.category) + '</span><br>'
+    : '';
+  const metaParts = [e.venue, e.dates].filter(Boolean).map(escapeHtml).join(' &middot; ');
+  return '<div class="card">'
+    + category
+    + '<p class="card-title">' + escapeHtml(e.title) + '</p>'
+    + (metaParts ? '<p class="card-meta">' + metaParts + '</p>' : '')
+    + (e.url ? '<a class="card-link" href="' + e.url + '" target="_blank" rel="noopener">Dettagli &rarr;</a>' : '')
+    + '</div>';
+}
+
 function selectTab(slug) {
   document.querySelectorAll('.tab-btn').forEach(function(btn) {
     btn.classList.toggle('active', btn.dataset.slug === slug);
@@ -136,20 +161,28 @@ function selectTab(slug) {
 function buildUI(data) {
   const cities = data.cities || {};
   const slugs = Object.keys(cities);
+  const hasEvents = Array.isArray(data.trieste_eventi) && data.trieste_eventi.length > 0;
   const tabsEl = document.getElementById('tabs');
   const viewsEl = document.getElementById('views');
 
-  if (slugs.length === 0) {
+  if (slugs.length === 0 && !hasEvents) {
     viewsEl.innerHTML = '<div class="error">Nessun dato disponibile al momento.</div>';
     return;
   }
 
-  tabsEl.innerHTML = slugs.map(function(slug, i) {
-    return '<button class="tab-btn' + (i === 0 ? ' active' : '') + '" data-slug="' + slug + '">'
-      + escapeHtml(cities[slug].city) + '</button>';
+  const tabDefs = slugs.map(function(slug) {
+    return { slug: slug, label: cities[slug].city };
+  });
+  if (hasEvents) {
+    tabDefs.push({ slug: '__eventi_trieste', label: 'Eventi (Trieste)' });
+  }
+
+  tabsEl.innerHTML = tabDefs.map(function(t, i) {
+    return '<button class="tab-btn' + (i === 0 ? ' active' : '') + '" data-slug="' + t.slug + '">'
+      + escapeHtml(t.label) + '</button>';
   }).join('');
 
-  viewsEl.innerHTML = slugs.map(function(slug, i) {
+  const cityViews = slugs.map(function(slug, i) {
     const c = cities[slug];
     const list = c.exhibitions.map(renderCard).join('')
       || '<p class="note">Nessuna mostra attualmente in corso.</p>';
@@ -158,6 +191,21 @@ function buildUI(data) {
       + list
       + '</div>';
   }).join('');
+
+  let eventsView = '';
+  if (hasEvents) {
+    const eventsList = data.trieste_eventi.map(renderEventCard).join('');
+    const updatedNote = data.trieste_eventi_aggiornato_il
+      ? ' (aggiornati al ' + escapeHtml(data.trieste_eventi_aggiornato_il) + ')'
+      : '';
+    eventsView = '<div class="view' + (slugs.length === 0 ? ' active' : '') + '" data-slug="__eventi_trieste">'
+      + '<p class="note">' + data.trieste_eventi.length + ' eventi culturali in programma a Trieste'
+      + updatedNote + ' &mdash; fonte: triestecultura.it, Comune di Trieste</p>'
+      + eventsList
+      + '</div>';
+  }
+
+  viewsEl.innerHTML = cityViews + eventsView;
 
   tabsEl.querySelectorAll('.tab-btn').forEach(function(btn) {
     btn.addEventListener('click', function() { selectTab(btn.dataset.slug); });
