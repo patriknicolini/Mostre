@@ -1,5 +1,5 @@
 {
-  "generated_at": "23 September 2026, 09:42 UTC",
+  "generated_at": "24 September 2026, 09:41 UTC",
   "cities": {
     "trieste": {
       "city": "Trieste",
@@ -40,6 +40,12 @@
       "city": "Udine",
       "exhibitions": [
         {
+          "title": "Reevaluate ripensare il patrimonio culturale nell era digitale",
+          "venue": "Palazzo Brunner-Segré REEVALUATE - Ripensare il patrimonio culturale nell’era digitale Dal 24 al 25 settembre quindici partner provenienti da sette Paesi europei per presentare risultati, strumenti e sperimentazioni. Il 25 settembre due ... (Aquileia)",
+          "dates": "dal 24 Settembre 2026 al 25 Settembre 2026",
+          "url": "https://www.arte.it/calendario-arte/udine/mostra-reevaluate-ripensare-il-patrimonio-culturale-nell-era-digitale-104476"
+        },
+        {
           "title": "Il vangelo di marco sette secoli tre frammenti un racconto europeo",
           "venue": "Palazzo Meizlik IL VANGELO DI MARCO. Sette secoli. Tre frammenti. Un racconto europeo. Per la prima volta dopo sette secoli, le tre parti originali del Vangelo di Marco, oggi conservate a Cividale del Friuli, Venezia e Praga, vengono pre... (Aquileia)",
           "dates": "dal 12 Settembre 2026 al 25 Aprile 2027",
@@ -62,6 +68,12 @@
           "venue": "Casa Zigaina Casa Zigaina, luogo magico e dell’anima La “bellissima casa di Zigaina”, così definita da Pier Paolo Pasolini, amico del pittore, è stata acquistata dalla Regione A... (Cervignano del Friuli)",
           "dates": "dal 18 Dicembre 2024 al 31 Dicembre 2030",
           "url": "https://www.arte.it/calendario-arte/udine/mostra-casa-zigaina-luogo-magico-e-dell-anima-100115"
+        },
+        {
+          "title": "Giornate europee del patrimonio ad aquileia tre giorni tra archeologia innovazione natura e nuove forme di racconto",
+          "venue": "Varie sedi Giornate Europee del Patrimonio: ad Aquileia tre giorni tra archeologia, innovazione, natura e nuove forme di racconto (Aquileia)",
+          "dates": "dal 25 Settembre 2027 al 27 Settembre 2026",
+          "url": "https://www.arte.it/calendario-arte/udine/mostra-giornate-europee-del-patrimonio-ad-aquileia-tre-giorni-tra-archeologia-innovazione-natura-e-nuove-forme-di-racconto-104477"
         }
       ]
     },
