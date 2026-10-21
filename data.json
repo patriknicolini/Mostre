@@ -1,5 +1,5 @@
 {
-  "generated_at": "20 October 2026, 09:46 UTC",
+  "generated_at": "21 October 2026, 09:47 UTC",
   "cities": {
     "trieste": {
       "city": "Trieste",
@@ -26,6 +26,12 @@
           "venue": "Casa Zigaina Casa Zigaina, luogo magico e dell’anima La “bellissima casa di Zigaina”, così definita da Pier Paolo Pasolini, amico del pittore, è stata acquistata dalla Regione A... (Cervignano del Friuli)",
           "dates": "dal 18 Dicembre 2024 al 31 Dicembre 2030",
           "url": "https://www.arte.it/calendario-arte/udine/mostra-casa-zigaina-luogo-magico-e-dell-anima-100115"
+        },
+        {
+          "title": "Rinascite da leonardo da vinci al contemporaneo",
+          "venue": "Villa Manin RINASCITE. Da Leonardo da Vinci al contemporaneo (Codroipo)",
+          "dates": "dal 14 Novembre 2026 al 21 Febbraio 2027",
+          "url": "https://www.arte.it/calendario-arte/udine/mostra-rinascite-da-leonardo-da-vinci-al-contemporaneo-104642"
         }
       ]
     },
