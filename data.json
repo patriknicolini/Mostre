@@ -1,5 +1,5 @@
 {
-  "generated_at": "27 October 2026, 10:10 UTC",
+  "generated_at": "28 October 2026, 10:56 UTC",
   "cities": {
     "trieste": {
       "city": "Trieste",
@@ -32,6 +32,12 @@
           "venue": "Villa Manin RINASCITE. Da Leonardo da Vinci al contemporaneo (Codroipo)",
           "dates": "dal 14 Novembre 2026 al 21 Febbraio 2027",
           "url": "https://www.arte.it/calendario-arte/udine/mostra-rinascite-da-leonardo-da-vinci-al-contemporaneo-104642"
+        },
+        {
+          "title": "Marco petrus vitale petrus 2026 1976",
+          "venue": "LoStudiolo Marco Petrus Vitale Petrus 2026 1976",
+          "dates": "dal 14 Novembre 2026 al 23 Dicembre 2026",
+          "url": "https://www.arte.it/calendario-arte/udine/mostra-marco-petrus-vitale-petrus-2026-1976-104695"
         }
       ]
     },
