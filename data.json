@@ -1,17 +1,6 @@
 {
-  "generated_at": "01 November 2026, 11:37 UTC",
+  "generated_at": "02 November 2026, 13:02 UTC",
   "cities": {
-    "trieste": {
-      "city": "Trieste",
-      "exhibitions": [
-        {
-          "title": "Una sfinge l attrae massimiliano d asburgo e le collezioni egizie tra trieste e vienna",
-          "venue": "Scuderie del Castello di Miramare Una Sfinge l’attrae. Massimiliano d’Asburgo e le collezioni egizie tra Trieste e Vienna Ritorna a Trieste parte della collezione egizia dell’arciduca Ferdinando Massimiliano d’Asburgo grazie alla collaborazione tra il Mus...",
-          "dates": "dal 2 Aprile 2026 al 1 Novembre 2026",
-          "url": "https://www.arte.it/calendario-arte/trieste/mostra-una-sfinge-l-attrae-massimiliano-d-asburgo-e-le-collezioni-egizie-tra-trieste-e-vienna-103271"
-        }
-      ]
-    },
     "udine": {
       "city": "Udine",
       "exhibitions": [
@@ -42,6 +31,7 @@
     }
   },
   "failed_cities": [
+    "Trieste",
     "Pordenone"
   ]
 }
