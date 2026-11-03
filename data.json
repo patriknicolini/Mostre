@@ -1,6 +1,17 @@
 {
-  "generated_at": "02 November 2026, 13:02 UTC",
+  "generated_at": "03 November 2026, 12:34 UTC",
   "cities": {
+    "trieste": {
+      "city": "Trieste",
+      "exhibitions": [
+        {
+          "title": "Jack vettriano",
+          "venue": "Salone degli Incanti Jack Vettriano Dopo i successi delle rassegne di Bologna, Milano e Roma, con oltre 80.000 visitatori, il Salone degli Incanti di Trieste, dal 29 ottobre 2026 al...",
+          "dates": "dal 29 Ottobre 2026 al 2 Maggio 2027",
+          "url": "https://www.arte.it/calendario-arte/trieste/mostra-jack-vettriano-104741"
+        }
+      ]
+    },
     "udine": {
       "city": "Udine",
       "exhibitions": [
@@ -31,7 +42,6 @@
     }
   },
   "failed_cities": [
-    "Trieste",
     "Pordenone"
   ]
 }
