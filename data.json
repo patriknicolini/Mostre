@@ -1,5 +1,5 @@
 {
-  "generated_at": "06 November 2026, 12:40 UTC",
+  "generated_at": "07 November 2026, 11:27 UTC",
   "cities": {
     "trieste": {
       "city": "Trieste",
@@ -39,9 +39,18 @@
           "url": "https://www.arte.it/calendario-arte/gorizia/mostra-italia-settanta-la-creatività-come-antidoto-arte-moda-design-104052"
         }
       ]
+    },
+    "pordenone": {
+      "city": "Pordenone",
+      "exhibitions": [
+        {
+          "title": "Francesco dolfo fuoriserie",
+          "venue": "Museo Civico d'Arte di Palazzo Ricchier Francesco Dolfo. Fuoriserie Tra gli appuntamenti che inaugurano il calendario di Pordenone Capitale Italiana della Cultura 2027, il Museo Civico d'Arte di Palazzo Ricchieri prese...",
+          "dates": "dal 7 Novembre 2026 al 27 Dicembre 2026",
+          "url": "https://www.arte.it/calendario-arte/pordenone/mostra-francesco-dolfo-fuoriserie-104427"
+        }
+      ]
     }
   },
-  "failed_cities": [
-    "Pordenone"
-  ]
+  "failed_cities": []
 }
