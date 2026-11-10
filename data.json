@@ -1,5 +1,5 @@
 {
-  "generated_at": "09 November 2026, 13:33 UTC",
+  "generated_at": "10 November 2026, 13:13 UTC",
   "cities": {
     "trieste": {
       "city": "Trieste",
@@ -15,6 +15,12 @@
     "udine": {
       "city": "Udine",
       "exhibitions": [
+        {
+          "title": "Il giudizio finale di giambattista tiepolo",
+          "venue": "Castello di Udine Il ‘Giudizio finale’ di Giambattista Tiepolo Grazie allo scambio tra il Comune di Udine e il Gruppo Intesa San Paolo, giunge temporaneamente nelle collezioni civiche Il Giudizio Finale di Giambat...",
+          "dates": "dal 10 Ottobre 2026 al 17 Gennaio 2027",
+          "url": "https://www.arte.it/calendario-arte/udine/mostra-il-giudizio-finale-di-giambattista-tiepolo-104756"
+        },
         {
           "title": "Il vangelo di marco sette secoli tre frammenti un racconto europeo",
           "venue": "Palazzo Meizlik IL VANGELO DI MARCO. Sette secoli. Tre frammenti. Un racconto europeo. Per la prima volta dopo sette secoli, le tre parti originali del Vangelo di Marco, oggi conservate a Cividale del Friuli, Venezia e Praga, vengono pre... (Aquileia)",
@@ -48,6 +54,12 @@
           "venue": "Museo Civico d'Arte di Palazzo Ricchier Francesco Dolfo. Fuoriserie Tra gli appuntamenti che inaugurano il calendario di Pordenone Capitale Italiana della Cultura 2027, il Museo Civico d'Arte di Palazzo Ricchieri prese...",
           "dates": "dal 7 Novembre 2026 al 27 Dicembre 2026",
           "url": "https://www.arte.it/calendario-arte/pordenone/mostra-francesco-dolfo-fuoriserie-104427"
+        },
+        {
+          "title": "Dino buzzati poema a fumetti orfeo",
+          "venue": "Palazzo del Fumetto Dino Buzzati. Poema a fumetti – Orfeo",
+          "dates": "dal 14 Gennaio 2027 al 11 Aprile 2027",
+          "url": "https://www.arte.it/calendario-arte/pordenone/mostra-dino-buzzati-poema-a-fumetti-orfeo-104758"
         }
       ]
     }
