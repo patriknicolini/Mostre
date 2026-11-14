@@ -1,5 +1,5 @@
 {
-  "generated_at": "13 November 2026, 12:49 UTC",
+  "generated_at": "14 November 2026, 11:54 UTC",
   "cities": {
     "trieste": {
       "city": "Trieste",
@@ -15,6 +15,18 @@
     "udine": {
       "city": "Udine",
       "exhibitions": [
+        {
+          "title": "Rinascite da leonardo da vinci al contemporaneo",
+          "venue": "Villa Manin RINASCITE. Da Leonardo da Vinci al contemporaneo Nel cinquantesimo anniversario del devastante terremoto che nel 1976 colpì il Friuli, la Regione Autonoma Friuli Venezia Giulia ed ERPAC presen... (Codroipo)",
+          "dates": "dal 14 Novembre 2026 al 21 Febbraio 2027",
+          "url": "https://www.arte.it/calendario-arte/udine/mostra-rinascite-da-leonardo-da-vinci-al-contemporaneo-104642"
+        },
+        {
+          "title": "Marco petrus vitale petrus 2026 1976",
+          "venue": "LoStudiolo Marco Petrus Vitale Petrus 2026 1976 LoStudiolo presenta, dal 14 novembre al 23 dicembre 2026, la mostra Marco Petrus Vitale Petrus 2026 1976. L’esposizione riporta a Udine l’...",
+          "dates": "dal 14 Novembre 2026 al 23 Dicembre 2026",
+          "url": "https://www.arte.it/calendario-arte/udine/mostra-marco-petrus-vitale-petrus-2026-1976-104695"
+        },
         {
           "title": "Il giudizio finale di giambattista tiepolo",
           "venue": "Castello di Udine Il ‘Giudizio finale’ di Giambattista Tiepolo Grazie allo scambio tra il Comune di Udine e il Gruppo Intesa San Paolo, giunge temporaneamente nelle collezioni civiche Il Giudizio Finale di Giambat...",
