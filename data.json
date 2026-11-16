@@ -1,5 +1,5 @@
 {
-  "generated_at": "15 November 2026, 12:27 UTC",
+  "generated_at": "16 November 2026, 13:18 UTC",
   "cities": {
     "trieste": {
       "city": "Trieste",
@@ -72,6 +72,12 @@
           "venue": "Palazzo del Fumetto Dino Buzzati. Poema a fumetti – Orfeo",
           "dates": "dal 14 Gennaio 2027 al 11 Aprile 2027",
           "url": "https://www.arte.it/calendario-arte/pordenone/mostra-dino-buzzati-poema-a-fumetti-orfeo-104758"
+        },
+        {
+          "title": "Joan miró la poesia degli oggetti e della materia",
+          "venue": "Galleria Harry Bertoia Joan Miró: la poesia degli oggetti e della materia",
+          "dates": "dal 22 Gennaio 2027 al 30 Maggio 2027",
+          "url": "https://www.arte.it/calendario-arte/pordenone/mostra-joan-miró-la-poesia-degli-oggetti-e-della-materia-104809"
         }
       ]
     }
