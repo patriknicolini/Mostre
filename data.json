@@ -1,5 +1,5 @@
 {
-  "generated_at": "16 November 2026, 13:18 UTC",
+  "generated_at": "17 November 2026, 14:04 UTC",
   "cities": {
     "trieste": {
       "city": "Trieste",
@@ -44,6 +44,12 @@
           "venue": "Casa Zigaina Casa Zigaina, luogo magico e dell’anima La “bellissima casa di Zigaina”, così definita da Pier Paolo Pasolini, amico del pittore, è stata acquistata dalla Regione A... (Cervignano del Friuli)",
           "dates": "dal 18 Dicembre 2024 al 31 Dicembre 2030",
           "url": "https://www.arte.it/calendario-arte/udine/mostra-casa-zigaina-luogo-magico-e-dell-anima-100115"
+        },
+        {
+          "title": "New york superstars",
+          "venue": "Casa Cavazzini – Museo d’Arte Moderna e Contemporanea New York Superstars",
+          "dates": "dal 16 Dicembre 2026 al 2 Maggio 2027",
+          "url": "https://www.arte.it/calendario-arte/udine/mostra-new-york-superstars-104828"
         }
       ]
     },
