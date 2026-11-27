@@ -1,5 +1,5 @@
 {
-  "generated_at": "26 November 2026, 14:40 UTC",
+  "generated_at": "27 November 2026, 14:38 UTC",
   "cities": {
     "trieste": {
       "city": "Trieste",
@@ -21,6 +21,12 @@
           "venue": "Museo LETS Filippo Tommaso Marinetti e l’Avanguardia futurista a Trieste. 1876-2026 Filippo Tommaso Marinetti è scrittore deciso a scuotere le menti e gli animi incapaci di cogliere il cambiamento dei tempi. La mostra, articola...",
           "dates": "dal 20 Novembre 2026 al 1 Febbraio 2027",
           "url": "https://www.arte.it/calendario-arte/trieste/mostra-filippo-tommaso-marinetti-e-l-avanguardia-futurista-a-trieste-1876-2026-104757"
+        },
+        {
+          "title": "Stefano graziani deriva dei continenti",
+          "venue": "Magazzino delle Idee Stefano Graziani Deriva dei continenti",
+          "dates": "dal 11 Dicembre 2026 al 31 Marzo 2027",
+          "url": "https://www.arte.it/calendario-arte/trieste/mostra-stefano-graziani-deriva-dei-continenti-104928"
         }
       ]
     },
